@@ -74,8 +74,11 @@ export function Footer() {
               alt="SPAV Digital"
               width={140}
               height={48}
-              className="h-9 w-auto object-contain sm:h-10"
+              className="h-9 w-auto rounded-md object-contain sm:h-10"
             />
+            <span className="hidden text-xs text-ice/60 group-hover:text-ice/90 sm:inline">
+              www.spavdigital.com.br
+            </span>
           </a>
         </div>
       </div>
