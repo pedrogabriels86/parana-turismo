@@ -73,7 +73,9 @@ export function Footer() {
               <p className="mt-0.5 text-xs font-semibold text-ice/90 group-hover:text-white">
                 SPAV Digital
               </p>
-              <p className="mt-0.5 text-[11px] text-[#5CE1FF]/www.spavdigital.com.br}</p>
+              <p className="mt-0.5 text-[11px] text-cyan-300">
+                www.spavdigital.com.br
+              </p>
             </div>
             <Image
               src="/brand/spav-digital.png"
