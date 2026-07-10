@@ -54,7 +54,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-5 sm:flex-row sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 px-4 py-5 sm:flex-row sm:px-6">
           <p className="text-xs text-ice/50">
             © {new Date().getFullYear()} Paranã Turismo — Tocantins
           </p>
@@ -63,22 +63,25 @@ export function Footer() {
             href="https://www.spavdigital.com.br"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 rounded-xl px-2 py-1.5 transition hover:bg-white/5"
+            className="group flex items-center gap-3 rounded-xl border border-white/10 bg-black/25 px-3 py-2 transition hover:border-white/20 hover:bg-black/40"
             aria-label="Desenvolvido por SPAV Digital — www.spavdigital.com.br"
           >
-            <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-ice/55 group-hover:text-ice/80">
-              Desenvolvido por
-            </span>
+            <div className="text-right leading-tight">
+              <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-ice/55 group-hover:text-ice/80">
+                Desenvolvido por
+              </p>
+              <p className="mt-0.5 text-xs font-semibold text-ice/90 group-hover:text-white">
+                SPAV Digital
+              </p>
+              <p className="mt-0.5 text-[11px] text-[#5CE1FF]/www.spavdigital.com.br}</p>
+            </div>
             <Image
               src="/brand/spav-digital.png"
-              alt="SPAV Digital"
-              width={140}
-              height={48}
-              className="h-9 w-auto rounded-md object-contain sm:h-10"
+              alt="Logo SPAV Digital"
+              width={160}
+              height={72}
+              className="h-11 w-auto rounded-md object-contain sm:h-12"
             />
-            <span className="hidden text-xs text-ice/60 group-hover:text-ice/90 sm:inline">
-              www.spavdigital.com.br
-            </span>
           </a>
         </div>
       </div>
