@@ -36,7 +36,7 @@ export function Footer() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sand">
-            Parceiros
+            Contato
           </p>
           <ul className="mt-4 space-y-2 text-sm text-ice/80">
             <li>
@@ -45,8 +45,18 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <a href="mailto:contato@paranaturismo.com.br" className="hover:text-white">
-                contato@paranaturismo.com.br
+              <a href="mailto:spavdigital@gmail.com" className="hover:text-white">
+                spavdigital@gmail.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/556392121814"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                (63) 9212-1814
               </a>
             </li>
           </ul>
