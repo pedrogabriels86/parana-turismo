@@ -1,65 +1,134 @@
-import Image from "next/image";
+import Link from "next/link";
+import { EstablishmentCard } from "@/components/EstablishmentCard";
+import { getVipEstablishments } from "@/data/establishments";
 
-export default function Home() {
+const shortcuts = [
+  {
+    href: "/atrativos",
+    title: "Atrativos Naturais",
+    description: "Cachoeiras, serras e trilhas",
+    tone: "bg-emerald text-white",
+  },
+  {
+    href: "/catalogo",
+    title: "Onde Comer e Dormir",
+    description: "Catálogo oficial premium",
+    tone: "bg-white text-graphite ring-1 ring-emerald/10",
+  },
+  {
+    href: "/classificados",
+    title: "Experiências Locais",
+    description: "Classificados e autônomos",
+    tone: "bg-terracotta text-white",
+  },
+  {
+    href: "/atrativos#historia",
+    title: "História e Cultura",
+    description: "1904, Calunga e memória",
+    tone: "bg-graphite text-white",
+  },
+];
+
+export default function HomePage() {
+  const featured = getVipEstablishments().slice(0, 3);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <section className="relative min-h-[100svh] overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=2000&q=80"
+          alt="Paisagem das Serras Gerais em Paranã"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <div className="hero-overlay absolute inset-0" />
+
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-4 pb-20 pt-28 sm:px-6">
+          <p className="animate-fade-up font-display text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
+            Paranã
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <h1 className="animate-fade-up-delay mt-4 max-w-xl font-display text-2xl font-semibold leading-tight text-white/95 sm:text-3xl md:text-4xl">
+            Serras Gerais, poços esmeralda e hospitalidade tocantinense.
+          </h1>
+          <p className="animate-fade-up-delay-2 mt-4 max-w-lg text-base leading-relaxed text-white/80 sm:text-lg">
+            Encontre atrativos, hospedagem, sabores e experiências locais em um
+            só lugar.
+          </p>
+
+          <form
+            action="/catalogo"
+            className="animate-fade-up-delay-2 mt-8 w-full max-w-xl"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <label htmlFor="busca" className="sr-only">
+              O que você procura em Paranã hoje?
+            </label>
+            <div className="flex overflow-hidden rounded-2xl bg-white shadow-2xl shadow-black/25 ring-1 ring-black/5">
+              <input
+                id="busca"
+                name="q"
+                placeholder="O que você procura em Paranã hoje?"
+                className="min-w-0 flex-1 bg-transparent px-4 py-4 text-sm text-graphite outline-none placeholder:text-graphite-muted sm:px-5 sm:text-base"
+              />
+              <button
+                type="submit"
+                className="bg-emerald px-5 text-sm font-semibold text-white transition hover:bg-emerald-dark sm:px-6"
+              >
+                Buscar
+              </button>
+            </div>
+          </form>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="texture-noise mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {shortcuts.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`rounded-2xl p-5 transition hover:-translate-y-0.5 hover:shadow-lg ${item.tone}`}
+            >
+              <h2 className="font-display text-lg font-bold">{item.title}</h2>
+              <p className="mt-1 text-sm opacity-80">{item.description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20">
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">
+              Guia oficial
+            </p>
+            <h2 className="mt-2 font-display text-3xl font-bold text-graphite sm:text-4xl">
+              Catálogo em destaque
+            </h2>
+            <p className="mt-2 max-w-xl text-graphite-muted">
+              Estabelecimentos Parceiros VIP com reserva direta no WhatsApp.
+            </p>
+          </div>
+          <Link
+            href="/catalogo"
+            className="hidden text-sm font-semibold text-emerald hover:text-emerald-dark sm:inline"
+          >
+            Ver catálogo →
+          </Link>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((item) => (
+            <EstablishmentCard key={item.id} item={item} />
+          ))}
+        </div>
+
+        <Link
+          href="/catalogo"
+          className="mt-6 flex h-12 items-center justify-center rounded-xl bg-emerald text-sm font-semibold text-white sm:hidden"
+        >
+          Ver catálogo completo
+        </Link>
+      </section>
+    </>
   );
 }
